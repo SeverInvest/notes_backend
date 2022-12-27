@@ -64,9 +64,9 @@ jobs:
             echo "${{ github.token }}" | docker login ${{ env.REGISTRY }} --username ${{ github.actor }} --password-stdin
             docker pull ${{ env.REGISTRY }}/${{ steps.image_name.outputs.lowercase }}:latest
 
-            docker-compose down
-            docker-compose up -d
+            docker compose down
+            docker compose up -d
 
             for image in $(docker images | grep none | awk '{print $3}' | cat); do docker rmi "$image"; done
 
-            docker-compose ps
+            docker compose ps
