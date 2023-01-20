@@ -7,5 +7,5 @@ class ResultSerializer(ModelSerializer):
     class Meta:
 
         model = Result
-        fields = ['id', 'score', 'user', 'created_at']
+        fields = ['id', 'score', 'user', 'created_at', 'seconds']
 
