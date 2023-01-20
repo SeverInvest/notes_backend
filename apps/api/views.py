@@ -8,5 +8,5 @@ from apps.api.serializers import ResultSerializer
 
 
 class ResultViewSet(ModelViewSet):
-    queryset = Result.objects.all()
+    queryset = Result.objects.all().order_by('-seconds')[:20]
     serializer_class = ResultSerializer
